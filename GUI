@@ -1,3 +1,10 @@
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 //@author Justin
 
 public class Main {
@@ -6,6 +13,36 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		JFrame frameMain = new JFrame("Sakila DVD Rental Store");
+		frameMain.setVisible(true);
+		frameMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frameMain.setSize(800,500);
+		frameMain.setLayout(new GridLayout(3,1));
+		frameMain.setLocationRelativeTo(null);
+	    
+	    JPanel mainPanelTop = new JPanel(new GridLayout(1,1));
+	    JPanel mainPanelConent = new JPanel(new GridLayout(2,2));
+	    JPanel mainPanelBottom = new JPanel(new GridLayout(1,1));
+	    
+	    JLabel lblTitle = new JLabel("Welcome to KLJS Movie Rental");
+	    JButton btnCustomer = new JButton("Add Customer");
+	    JButton btnActor = new JButton("Add Actor");
+	    JButton btnFilm = new JButton("Add New Film");
+	    JButton btnRental = new JButton("Add Movie Rental");
+	    JButton btnReport = new JButton("Display rental Income");
+	    
+	    mainPanelTop.add(lblTitle);
+	    mainPanelConent.add(btnCustomer);
+	    mainPanelConent.add(btnActor);
+	    mainPanelConent.add(btnFilm);
+	    mainPanelConent.add(btnRental);
+	    mainPanelBottom.add(btnReport);
+	    
+	    frameMain.add(mainPanelTop);
+	    frameMain.add(mainPanelConent);
+	    frameMain.add(mainPanelBottom);
+	    
+	    frameMain.setVisible(true);
 	}
 
 }
