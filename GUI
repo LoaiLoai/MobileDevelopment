@@ -56,7 +56,7 @@ public class Main extends JFrame {
 	    mainPanelBottom.add(btnReport);
 	    
 		JButton btnMain = new JButton("Return to Main Menu");
-	    //btnCustomer.setSize(20, 20);
+	    btnCustomer.setSize(20, 20);
 	    
 	    JFrame frameCust = new JFrame("Add A Customer to the Database");
 		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
@@ -85,7 +85,7 @@ public class Main extends JFrame {
 		frameFilm.add(filmPanel);
 		filmPanel.add(btnMain);
 		
-		JFrame frameRental = new JFrame("Current Movie Rentals");
+		JFrame frameRental = new JFrame("Movie Rentals");
 		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
 		frameRental.setSize(800,500);
 		frameRental.setLayout(new GridLayout(1,1,10,10));
@@ -205,4 +205,3 @@ public class Main extends JFrame {
 	}
 
 }
-
