@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 //@author Justin
 
@@ -15,6 +16,12 @@ public class Main extends JFrame {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		//variable 
+		String actorFirstName = "";
+		String actorLastName = "";
+		
+		
+		
 		JFrame frameMain = new JFrame("Sakila DVD Rental Store");
 		frameMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameMain.setSize(800,500);
@@ -55,9 +62,10 @@ public class Main extends JFrame {
 	    mainPanelConent.add(btnRental);
 	    mainPanelBottom.add(btnReport);
 	    
-		JButton btnMain = new JButton("Return to Main Menu");
-	    btnCustomer.setSize(20, 20);
+	    JButton btnBackMain = new JButton("Main Menu");
 	    
+		JButton test = new JButton("Test");
+		
 	    JFrame frameCust = new JFrame("Add A Customer to the Database");
 		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
 	    frameCust.setSize(800,500);
@@ -65,25 +73,59 @@ public class Main extends JFrame {
 	    frameCust.setLocationRelativeTo(null);
 		JPanel custPanel = new JPanel(new GridLayout(1,1));
 		frameCust.add(custPanel);
-		custPanel.add(btnMain);
+		custPanel.add(test);
 		
 		JFrame frameActor = new JFrame("Add A Actor to the Database");
 		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
 		frameActor.setSize(800,500);
-		frameActor.setLayout(new GridLayout(1,1,10,10));
+		frameActor.setLayout(new GridLayout(3,1,10,10));
 		frameActor.setLocationRelativeTo(null);
-		JPanel actorPanel = new JPanel(new GridLayout(1,1));
-		frameActor.add(actorPanel);
-		actorPanel.add(btnMain);
+		
+		JPanel actorPanelTop = new JPanel(new GridLayout(1,1));
+		JPanel actorPanelContent = new JPanel(new GridLayout(2,2));
+		JPanel actorPanelBot = new JPanel(new GridLayout(2,1));
+		
+		JLabel lbl_aTitle = new JLabel("Please enter Actors first and last name");
+		JLabel lbl_aFirst = new JLabel("First Name:");
+		JLabel lbl_aLast = new JLabel("Last Name:");
+		JButton btn_aAdd = new JButton("Add");
+		JTextField tf_aFirst = new JTextField();
+		JTextField tf_aLast = new JTextField();
+		
+		
+		frameActor.add(actorPanelTop);
+		frameActor.add(actorPanelContent);
+		frameActor.add(actorPanelBot);
+		
+		actorPanelTop.add(lbl_aTitle);
+		
+		actorPanelContent.add(lbl_aFirst);
+		actorPanelContent.add(tf_aFirst);
+		actorPanelContent.add(lbl_aLast);
+		actorPanelContent.add(tf_aLast);
+		
+		actorPanelBot.add(test);
+		actorPanelBot.add(btn_aAdd);
 		
 		JFrame frameFilm = new JFrame("Add A Film to the Database");
 		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
 		frameFilm.setSize(800,500);
-		frameFilm.setLayout(new GridLayout(1,1,10,10));
+		frameFilm.setLayout(new GridLayout(3,1,10,10));
 		frameFilm.setLocationRelativeTo(null);
-		JPanel filmPanel = new JPanel(new GridLayout(1,1));
-		frameFilm.add(filmPanel);
-		filmPanel.add(btnMain);
+		
+		JPanel filmPanelTop = new JPanel(new GridLayout(1,1));
+		JPanel filmPanelContent = new JPanel(new GridLayout(2,2));
+		JPanel filmPanelBot = new JPanel(new GridLayout(2,1));
+		
+		JLabel lbl_mTitle = new JLabel("Please enter the info for the new film");
+		JButton btn_mAdd = new JButton("Add");
+		
+		frameFilm.add(filmPanelTop);
+		frameFilm.add(filmPanelContent);
+		frameFilm.add(filmPanelBot);
+		filmPanelTop.add(lbl_mTitle);
+		filmPanelBot.add(btn_mAdd);
+		filmPanelBot.add(btnBackMain);
 		
 		JFrame frameRental = new JFrame("Movie Rentals");
 		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
@@ -92,7 +134,7 @@ public class Main extends JFrame {
 		frameRental.setLocationRelativeTo(null);
 		JPanel rentalPanel = new JPanel(new GridLayout(1,1));
 		frameRental.add(rentalPanel);
-		rentalPanel.add(btnMain);
+		//rentalPanel.add(test);
 		
 		JFrame frameReport = new JFrame("Rental Income");
 		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
@@ -101,7 +143,7 @@ public class Main extends JFrame {
 		frameReport.setLocationRelativeTo(null);
 		JPanel reportPanel = new JPanel(new GridLayout(1,1));
 		frameReport.add(reportPanel);
-		reportPanel.add(btnMain);
+		//reportPanel.add(test);
 	   
 		frameMain.setVisible(true);
 	    
@@ -150,7 +192,7 @@ public class Main extends JFrame {
 	        }
 	    });
 	    
-	    btnMain.addActionListener(new ActionListener()
+	    btnBackMain.addActionListener(new ActionListener()
 	    { 
 	    	public void actionPerformed(ActionEvent ev)
 	        {
@@ -164,44 +206,19 @@ public class Main extends JFrame {
 	         
 	        }
 	    });
+	   
+	    btn_aAdd.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    	   
+	        }
+	    });
 	    
 	    
 	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+	        
 	}
 
 }
+
