@@ -1,4 +1,6 @@
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -52,9 +54,154 @@ public class Main extends JFrame {
 	    mainPanelConent.add(btnFilm);
 	    mainPanelConent.add(btnRental);
 	    mainPanelBottom.add(btnReport);
-	   
 	    
-	    frameMain.setVisible(true);
+		JButton btnMain = new JButton("Return to Main Menu");
+	    //btnCustomer.setSize(20, 20);
+	    
+	    JFrame frameCust = new JFrame("Add A Customer to the Database");
+		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
+	    frameCust.setSize(800,500);
+	    frameCust.setLayout(new GridLayout(1,1));
+	    frameCust.setLocationRelativeTo(null);
+		JPanel custPanel = new JPanel(new GridLayout(1,1));
+		frameCust.add(custPanel);
+		custPanel.add(btnMain);
+		
+		JFrame frameActor = new JFrame("Add A Actor to the Database");
+		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
+		frameActor.setSize(800,500);
+		frameActor.setLayout(new GridLayout(1,1,10,10));
+		frameActor.setLocationRelativeTo(null);
+		JPanel actorPanel = new JPanel(new GridLayout(1,1));
+		frameActor.add(actorPanel);
+		actorPanel.add(btnMain);
+		
+		JFrame frameFilm = new JFrame("Add A Film to the Database");
+		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
+		frameFilm.setSize(800,500);
+		frameFilm.setLayout(new GridLayout(1,1,10,10));
+		frameFilm.setLocationRelativeTo(null);
+		JPanel filmPanel = new JPanel(new GridLayout(1,1));
+		frameFilm.add(filmPanel);
+		filmPanel.add(btnMain);
+		
+		JFrame frameRental = new JFrame("Current Movie Rentals");
+		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
+		frameRental.setSize(800,500);
+		frameRental.setLayout(new GridLayout(1,1,10,10));
+		frameRental.setLocationRelativeTo(null);
+		JPanel rentalPanel = new JPanel(new GridLayout(1,1));
+		frameRental.add(rentalPanel);
+		rentalPanel.add(btnMain);
+		
+		JFrame frameReport = new JFrame("Rental Income");
+		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
+		frameReport.setSize(800,500);
+		frameReport.setLayout(new GridLayout(1,1,10,10));
+		frameReport.setLocationRelativeTo(null);
+		JPanel reportPanel = new JPanel(new GridLayout(1,1));
+		frameReport.add(reportPanel);
+		reportPanel.add(btnMain);
+	   
+		frameMain.setVisible(true);
+	    
+	    btnCustomer.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    		  frameMain.setVisible(false);
+	 	          frameCust.setVisible(true);
+	        }
+	    });
+	    
+	    btnActor.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    		frameMain.setVisible(false);
+	    		frameActor.setVisible(true);
+	        }
+	    });
+	    
+	    btnFilm.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    		frameMain.setVisible(false);
+	    		frameFilm.setVisible(true);
+	        }
+	    });
+	    
+	    btnRental.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    		frameMain.setVisible(false);
+	    		frameRental.setVisible(true);
+	        }
+	    });
+	    
+	    btnReport.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    		frameMain.setVisible(false);
+	    		frameReport.setVisible(true);
+	        }
+	    });
+	    
+	    btnMain.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	         frameMain.setVisible(true);
+	         
+	         frameCust.setVisible(false);
+	         frameActor.setVisible(false);
+	         frameFilm.setVisible(false);
+	         frameRental.setVisible(false);
+	         frameReport.setVisible(false);
+	         
+	        }
+	    });
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 	}
 
 }
