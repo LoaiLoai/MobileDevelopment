@@ -8,20 +8,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+//@author Loay 
 //@author Justin
 
 public class Main extends JFrame {
 
+	//variable 
+			static String actorFirstName = "";
+			static String actorLastName = "";
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		//variable 
-		String actorFirstName = "";
-		String actorLastName = "";
 		
-		
-		
+		//main frame boilerplate
 		JFrame frameMain = new JFrame("Sakila DVD Rental Store");
 		frameMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameMain.setSize(800,500);
@@ -85,6 +83,7 @@ public class Main extends JFrame {
 		JPanel actorPanelContent = new JPanel(new GridLayout(2,2));
 		JPanel actorPanelBot = new JPanel(new GridLayout(2,1));
 		
+		//actor frame components...
 		JLabel lbl_aTitle = new JLabel("Please enter Actors first and last name");
 		JLabel lbl_aFirst = new JLabel("First Name:");
 		JLabel lbl_aLast = new JLabel("Last Name:");
@@ -211,7 +210,8 @@ public class Main extends JFrame {
 	    { 
 	    	public void actionPerformed(ActionEvent ev)
 	        {
-	    	   
+	    		actorFirstName = tf_aFirst.getText();
+	    		actorLastName = tf_aLast.getText();
 	        }
 	    });
 	    
@@ -221,4 +221,3 @@ public class Main extends JFrame {
 	}
 
 }
-
