@@ -3,12 +3,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-//@author Justin
+//@author Justin & Loai
 
 public class Main extends JFrame 
 {
@@ -71,11 +73,25 @@ public class Main extends JFrame
 	    //------------------------------------
 	    JFrame frameCust = new JFrame("Add A Customer to the Database");
 	    frameCust.setSize(800,500);
-	    frameCust.setLayout(new GridLayout(1,1));
+	    frameCust.setLayout(new GridLayout(3,1));
 	    frameCust.setLocationRelativeTo(null);
-		JPanel custPanel = new JPanel(new GridLayout(1,1));
-		frameCust.add(custPanel);
-		custPanel.add(test);
+	    
+	    //Create and adds the panels to the frame
+		JPanel custPanelTop = new JPanel(new GridLayout(1,1));
+		JPanel custPanelContent = new JPanel(new GridLayout(1,1));
+		JPanel custPanelBot = new JPanel(new GridLayout(1,1));
+		frameCust.add(custPanelTop);
+		frameCust.add(custPanelContent);
+		frameCust.add(custPanelBot);
+		
+		//GUI element 
+		JLabel lbl_cTitle = new JLabel("Enter user information");
+		JLabel lbl_cFirstName = new JLabel("First Name:");
+		JLabel lbl_cLastName = new JLabel("Last Name:");
+		JLabel lbl_cEmail = new JLabel("Email Address");
+		//JLabel lbl_
+		
+	
 		
 		//------------------------------------
 	    //------------Actor Frame-------------
@@ -110,7 +126,7 @@ public class Main extends JFrame
 		actorPanelContent.add(lbl_aLast);
 		actorPanelContent.add(tf_aLast);
 		actorPanelBot.add(btn_aAdd);
-		actorPanelBot.add(test);
+		actorPanelBot.add(btnBackMain);
 		
 		//------------------------------------
 	    //------------Actor Popup-------------
@@ -158,21 +174,69 @@ public class Main extends JFrame
 		frameFilm.setLayout(new GridLayout(3,1,10,10));
 		frameFilm.setLocationRelativeTo(null);
 		
+		//Declares Variables For Frame
+		String[] releaserYearL = {"1980","1981","1982","1983","1984","1985","1986","1987","1988","1988","1989"
+				                ,"1990","1991","1992","1993","1994","1995","1996","1997","1998","1999","2000"
+				                ,"2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010"
+				                ,"2011","2012","2013","2014","2015","2016","2017","2018","2019","2020"};
+		String[] langaguesL = {"English","French", "Spanish", "Geraman", "Russian", "Bangla", "Bulgarian", "Arabic", "Ukranian"};
+		String[] rentalDurationL = {"3","4","5","6","7"};
+		String[] ratingL = {"G","PG","14A","18A","R"};
+		
+		
+		
 		//creates the panels and adds them to frame
 		JPanel filmPanelTop = new JPanel(new GridLayout(1,1));
-		JPanel filmPanelContent = new JPanel(new GridLayout(2,2));
+		JPanel filmPanelContent = new JPanel(new GridLayout(9,2));
 		JPanel filmPanelBot = new JPanel(new GridLayout(3,1));
 		frameFilm.add(filmPanelTop);
 		frameFilm.add(filmPanelContent);
 		frameFilm.add(filmPanelBot);
 		
 		//Create the GUI elements
-		JLabel lbl_fTitle = new JLabel("Please enter the info for the new film");
+		JLabel lbl_fTitle = new JLabel("Please enter the info for the new film then add the actors");
+		JLabel lbl_fTitle2 = new JLabel("Title:");
+		JLabel lbl_fDescription = new JLabel("Description:");
+		JLabel lbl_fYear = new JLabel("Release year:");
+		JLabel lbl_fLangauge = new JLabel("Language:");
+		JLabel lbl_fRentalDuration = new JLabel("Rental Duration:");
+		JLabel lbl_fLenght = new JLabel("Length:");
+		JLabel lbl_fReplacementCost = new JLabel("Replacement Cost:");
+		JLabel lbl_fRatting = new JLabel("Film Rating:");
+		JLabel lbl_fSpecialFeatures = new JLabel("Special Features:");
+		JTextField tf_fTitle = new JTextField();
+		JTextField tf_fDescription = new JTextField();
+		JTextField tf_fLength = new JTextField();
+		JTextField tf_fRCost = new JTextField();
+		JComboBox<?> cb_yearList = new JComboBox<Object>(releaserYearL);
+		JComboBox<?> cb_langaugeList = new JComboBox<Object>(langaguesL);
+		JComboBox<?> cb_rDurationList = new JComboBox<Object>(rentalDurationL);
+		JComboBox<?> cb_RatingList = new JComboBox<Object>(ratingL);
+		
 		JButton btn_fAddA = new JButton("Add Actor");
 		JButton btn_fAddF = new JButton("Add Film");
 		
+		
 		//adds the elements to the panels
 		filmPanelTop.add(lbl_fTitle);
+		filmPanelContent.add(lbl_fTitle2);
+		filmPanelContent.add(tf_fTitle);
+		filmPanelContent.add(lbl_fDescription);
+		filmPanelContent.add(tf_fDescription);
+		filmPanelContent.add(lbl_fYear);
+		filmPanelContent.add(cb_yearList);
+		filmPanelContent.add(lbl_fLangauge);
+		filmPanelContent.add(cb_langaugeList);
+		filmPanelContent.add(lbl_fRentalDuration);
+		filmPanelContent.add(cb_rDurationList);
+		filmPanelContent.add(lbl_fLenght);
+		filmPanelContent.add(tf_fLength);
+		filmPanelContent.add(lbl_fReplacementCost);
+		filmPanelContent.add(tf_fRCost);
+		filmPanelContent.add(lbl_fRatting);
+		filmPanelContent.add(cb_RatingList);
+		filmPanelContent.add(lbl_fSpecialFeatures);
+		
 		filmPanelBot.add(btn_fAddA);
 		filmPanelBot.add(btn_fAddF);
 		filmPanelBot.add(btnBackMain);
@@ -185,14 +249,54 @@ public class Main extends JFrame
 	    //-----------Rental Frame-------------
 	    //------------------------------------
 		
+		//variable list
+		String [] inventoryList = {};
+		String [] customerList = {};
+		String [] staffList = {};
+		
+		//Sql Code To Get Inventory, Customer and Staff id
+	 
+		//----------------------------------------------
+		
+		
 		//boiler plate code
 		JFrame frameRental = new JFrame("Movie Rentals");
 		frameRental.setSize(800,500);
-		frameRental.setLayout(new GridLayout(1,1,10,10));
+		frameRental.setLayout(new GridLayout(3,1,10,10));
 		frameRental.setLocationRelativeTo(null);
-		JPanel rentalPanel = new JPanel(new GridLayout(1,1));
-		frameRental.add(rentalPanel);
-		//rentalPanel.add(test);
+		
+		//creates panels and adds them to the frame
+		JPanel rentalPanelTop = new JPanel(new GridLayout(1,1));
+		JPanel rentalPanelContent = new JPanel(new GridLayout(5,2));
+		JPanel rentalPanelBot = new JPanel(new GridLayout(2,1));
+		frameRental.add(rentalPanelTop);
+		frameRental.add(rentalPanelContent);
+		frameRental.add(rentalPanelBot);
+		
+		//Creates elements
+		JLabel lbl_rentTitle = new JLabel("Enter the information for the Rental:");
+		JLabel lbl_rentCustId = new JLabel("Invetory Id:");
+		JLabel lbl_rentInvId = new JLabel("Customer Id:");
+		JLabel lbl_rentStaffId = new JLabel("Staff Id:");
+		JComboBox<?> cb_iventoryList = new JComboBox<Object>(inventoryList);
+		JComboBox<?> cb_customerList = new JComboBox<Object>(customerList);
+		JComboBox<?> cb_staffList = new JComboBox<Object>(staffList);
+		JButton btn_rentAddRental = new JButton("Add Rental");
+		
+		//adds elements From Frames
+		rentalPanelTop.add(lbl_rentTitle);
+		rentalPanelContent.add(lbl_rentCustId);
+		rentalPanelContent.add(cb_customerList);
+		rentalPanelContent.add(lbl_rentInvId);
+		rentalPanelContent.add(cb_iventoryList);
+		rentalPanelContent.add(lbl_rentStaffId);
+		rentalPanelContent.add(cb_staffList);
+		rentalPanelBot.add(btn_rentAddRental);
+		rentalPanelBot.add(btnBackMain);
+		
+		
+		
+		
 		
 		//------------------------------------
 	    //-----------Report Frame-------------
@@ -201,11 +305,41 @@ public class Main extends JFrame
 		//boiler plate code
 		JFrame frameReport = new JFrame("Rental Income");
 		frameReport.setSize(800,500);
-		frameReport.setLayout(new GridLayout(1,1,10,10));
+		frameReport.setLayout(new GridLayout(3,1,10,10));
 		frameReport.setLocationRelativeTo(null);
-		JPanel reportPanel = new JPanel(new GridLayout(1,1));
-		frameReport.add(reportPanel);
-		//reportPanel.add(test);
+		
+		//Varaibles for Frame
+		String[] StoreL = {"Canada Location", "Austrailia Loacation", "Both Locations"};
+		
+		//Creates the panels and adds them to the frame
+		JPanel reportPanelTop = new JPanel(new GridLayout(1,1));
+		JPanel reportPanelContent = new JPanel(new GridLayout(2,1));
+		JPanel reportPanelBot = new JPanel(new GridLayout(4,1));
+		frameReport.add(reportPanelTop);
+		frameReport.add(reportPanelContent);
+		frameReport.add(reportPanelBot);
+		
+		//create Gui elements
+		JLabel lbl_rTitle = new JLabel("Please Select a Report");
+		JTextArea txa_rTextOutput = new JTextArea(25,10);
+		JComboBox<?> cb_rStore = new JComboBox<Object>(StoreL);
+		JButton btn_rAllIncome = new JButton("Income For All rentals");
+		JButton btn_rCatIncome = new JButton("All Rentals Dy Category");
+		JButton btn_rDateIncome = new JButton("All Rentals by Date");
+			
+		//adds the elements to the panels
+		reportPanelTop.add(lbl_rTitle);
+		reportPanelContent.add(txa_rTextOutput);
+		reportPanelContent.add(cb_rStore);
+		reportPanelBot.add(btn_rAllIncome);
+		reportPanelBot.add(btn_rCatIncome);
+		reportPanelBot.add(btn_rDateIncome);
+		reportPanelBot.add(btnBackMain);
+		
+		//END of frame Declaration
+		//------------------------
+		
+		
 		frameMain.setVisible(true);
 	    
 		
@@ -292,6 +426,7 @@ public class Main extends JFrame
 	        }
 	    });
 	   
+	    
 	    //------------------------------------
 	    //Add Actor Button
 	  	//add an actor to the database
