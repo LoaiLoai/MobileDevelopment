@@ -109,9 +109,44 @@ public class Main extends JFrame
 		actorPanelContent.add(tf_aFirst);
 		actorPanelContent.add(lbl_aLast);
 		actorPanelContent.add(tf_aLast);
-		actorPanelBot.add(test);
 		actorPanelBot.add(btn_aAdd);
+		actorPanelBot.add(test);
 		
+		//------------------------------------
+	    //------------Actor Popup-------------
+	    //------------------------------------
+		
+		//boiler plate code
+		JFrame popupActor = new JFrame("Actors for the film");
+		popupActor.setSize(350,200);
+		popupActor.setLayout(new GridLayout(3,1,10,10));
+		popupActor.setLocationRelativeTo(null);
+		
+		//creates the panels and adds them to the frame
+		JPanel popupPanelTop = new JPanel(new GridLayout(1,1));
+		JPanel popupPanelContent = new JPanel(new GridLayout(2,2));
+		JPanel popupPanelBot = new JPanel(new GridLayout(2,1));
+		popupActor.add(popupPanelTop);
+		popupActor.add(popupPanelContent);
+		popupActor.add(popupPanelBot);
+		
+		//creates the elements 
+		JLabel lbl_pTitle = new JLabel("Please enter Actors Name from the film");
+		JLabel lbl_pFirst = new JLabel("First Name:");
+		JLabel lbl_pLast = new JLabel("Last Name:");
+		JButton btn_pAdd = new JButton("Add");
+		JButton btn_pDone = new JButton("Done");
+		JTextField tf_pFirst = new JTextField();
+		JTextField tf_pLast = new JTextField();
+		
+		//adds the elements to the panels
+		popupPanelTop.add(lbl_pTitle);
+		popupPanelContent.add(lbl_pFirst);
+		popupPanelContent.add(tf_pFirst);
+		popupPanelContent.add(lbl_pLast);
+		popupPanelContent.add(tf_pLast);
+		popupPanelBot.add(btn_pAdd);
+		popupPanelBot.add(btn_pDone);
 		
 		//------------------------------------
 	    //------------Film Frame--------------
@@ -126,19 +161,25 @@ public class Main extends JFrame
 		//creates the panels and adds them to frame
 		JPanel filmPanelTop = new JPanel(new GridLayout(1,1));
 		JPanel filmPanelContent = new JPanel(new GridLayout(2,2));
-		JPanel filmPanelBot = new JPanel(new GridLayout(2,1));
+		JPanel filmPanelBot = new JPanel(new GridLayout(3,1));
 		frameFilm.add(filmPanelTop);
 		frameFilm.add(filmPanelContent);
 		frameFilm.add(filmPanelBot);
 		
 		//Create the GUI elements
-		JLabel lbl_mTitle = new JLabel("Please enter the info for the new film");
-		JButton btn_mAdd = new JButton("Add");
+		JLabel lbl_fTitle = new JLabel("Please enter the info for the new film");
+		JButton btn_fAddA = new JButton("Add Actor");
+		JButton btn_fAddF = new JButton("Add Film");
 		
 		//adds the elements to the panels
-		filmPanelTop.add(lbl_mTitle);
-		filmPanelBot.add(btn_mAdd);
+		filmPanelTop.add(lbl_fTitle);
+		filmPanelBot.add(btn_fAddA);
+		filmPanelBot.add(btn_fAddF);
 		filmPanelBot.add(btnBackMain);
+		
+		//disableing buttons
+		btn_fAddA.setEnabled(false);
+		
 		
 		//------------------------------------
 	    //-----------Rental Frame-------------
@@ -252,8 +293,8 @@ public class Main extends JFrame
 	    });
 	   
 	    //------------------------------------
-	    //Actor Button
-	  	//Opens the Actor Frame
+	    //Add Actor Button
+	  	//add an actor to the database
 	  	//------------------------------------
 	    btn_aAdd.addActionListener(new ActionListener()
 	    { 
@@ -262,6 +303,44 @@ public class Main extends JFrame
 	    	   
 	        }
 	    });
+	    
+	    //------------------------------------
+	    //Add Actor to film popup Button
+	  	//add an actor to the database
+	  	//------------------------------------
+	    btn_fAddA.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    		popupActor.setVisible(true);
+	        }
+	    });
+	    
+	    //------------------------------------
+	    //Add Film Button
+	  	//add an Film to the database
+	  	//------------------------------------
+	    btn_fAddF.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    		btn_fAddF.setEnabled(false);
+	    		btn_fAddA.setEnabled(true);
+	        }
+	    });
+	    
+	    //------------------------------------
+	    //Popup done Button
+	  	//add an Film to the database
+	  	//------------------------------------
+	    btn_pDone.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    		popupActor.setVisible(false);
+	        }
+	    });
+	    
 	    
 	    
 	    
