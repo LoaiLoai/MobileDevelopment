@@ -10,51 +10,54 @@ import javax.swing.JTextField;
 
 //@author Justin
 
-public class Main extends JFrame {
+public class Main extends JFrame 
+{
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		// TODO Auto-generated method stub
 
 		//variable 
 		String actorFirstName = "";
 		String actorLastName = "";
+		JButton btnBackMain = new JButton("Main Menu");
+		JButton test = new JButton("Test");
 		
 		
-		
+		//------------------------------------
+		//------------Main Frame--------------
+		//------------------------------------
+		//Boiler plate
 		JFrame frameMain = new JFrame("Sakila DVD Rental Store");
 		frameMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameMain.setSize(800,500);
 		frameMain.setLayout(new GridLayout(3,1,10,10));
 		frameMain.setLocationRelativeTo(null);
 	    
+		//Creates Panels and add to Frame
 	    JPanel mainPanelTop = new JPanel(new GridLayout(1,1));
 	    JPanel mainPanelConent = new JPanel(new GridLayout(2,2));
 	    JPanel mainPanelBottom = new JPanel(new GridLayout(1,1));
-	    
 	    frameMain.add(mainPanelTop);
 	    frameMain.add(mainPanelConent);
 	    frameMain.add(mainPanelBottom);
 	    
+	    //creates GUI elements
 	    JLabel lblTitle = new JLabel("Welcome to KLJS Movie Rental");
 	    lblTitle.setAlignmentX(400);
-	    
 	    JButton btnCustomer = new JButton("Add Customer");
 	    btnCustomer.setSize(20, 20);
-	    
 	    JButton btnActor = new JButton("Add Actor");
 	    btnActor.setSize(20, 20);
-	    
 	    JButton btnFilm = new JButton("Add New Film");
 	    btnFilm.setSize(20, 20);
-	    
 	    JButton btnRental = new JButton("Add Movie Rental");
 	    btnRental.setSize(20, 20);
-	    
 	    JButton btnReport = new JButton("Display rental Income");
 	    btnReport.setSize(20, 20);
 	    
-	    
+	    //Adds the elements to the panels
 	    mainPanelTop.add(lblTitle);
 	    mainPanelConent.add(btnCustomer);
 	    mainPanelConent.add(btnActor);
@@ -62,12 +65,11 @@ public class Main extends JFrame {
 	    mainPanelConent.add(btnRental);
 	    mainPanelBottom.add(btnReport);
 	    
-	    JButton btnBackMain = new JButton("Main Menu");
 	    
-		JButton test = new JButton("Test");
-		
+	    //------------------------------------
+	    //-----------Customer Frame-----------
+	    //------------------------------------
 	    JFrame frameCust = new JFrame("Add A Customer to the Database");
-		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
 	    frameCust.setSize(800,500);
 	    frameCust.setLayout(new GridLayout(1,1));
 	    frameCust.setLocationRelativeTo(null);
@@ -75,16 +77,25 @@ public class Main extends JFrame {
 		frameCust.add(custPanel);
 		custPanel.add(test);
 		
+		//------------------------------------
+	    //------------Actor Frame-------------
+	    //------------------------------------
+		
+		//boiler plate code
 		JFrame frameActor = new JFrame("Add A Actor to the Database");
-		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
 		frameActor.setSize(800,500);
 		frameActor.setLayout(new GridLayout(3,1,10,10));
 		frameActor.setLocationRelativeTo(null);
 		
+		//creates the panels and adds the to the frame
 		JPanel actorPanelTop = new JPanel(new GridLayout(1,1));
 		JPanel actorPanelContent = new JPanel(new GridLayout(2,2));
 		JPanel actorPanelBot = new JPanel(new GridLayout(2,1));
+		frameActor.add(actorPanelTop);
+		frameActor.add(actorPanelContent);
+		frameActor.add(actorPanelBot);
 		
+		//creates the elements 
 		JLabel lbl_aTitle = new JLabel("Please enter Actors first and last name");
 		JLabel lbl_aFirst = new JLabel("First Name:");
 		JLabel lbl_aLast = new JLabel("Last Name:");
@@ -92,43 +103,49 @@ public class Main extends JFrame {
 		JTextField tf_aFirst = new JTextField();
 		JTextField tf_aLast = new JTextField();
 		
-		
-		frameActor.add(actorPanelTop);
-		frameActor.add(actorPanelContent);
-		frameActor.add(actorPanelBot);
-		
+		//adds elements for the panel
 		actorPanelTop.add(lbl_aTitle);
-		
 		actorPanelContent.add(lbl_aFirst);
 		actorPanelContent.add(tf_aFirst);
 		actorPanelContent.add(lbl_aLast);
 		actorPanelContent.add(tf_aLast);
-		
 		actorPanelBot.add(test);
 		actorPanelBot.add(btn_aAdd);
 		
+		
+		//------------------------------------
+	    //------------Film Frame--------------
+	    //------------------------------------
+		
+		//boiler plate code
 		JFrame frameFilm = new JFrame("Add A Film to the Database");
-		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
 		frameFilm.setSize(800,500);
 		frameFilm.setLayout(new GridLayout(3,1,10,10));
 		frameFilm.setLocationRelativeTo(null);
 		
+		//creates the panels and adds them to frame
 		JPanel filmPanelTop = new JPanel(new GridLayout(1,1));
 		JPanel filmPanelContent = new JPanel(new GridLayout(2,2));
 		JPanel filmPanelBot = new JPanel(new GridLayout(2,1));
-		
-		JLabel lbl_mTitle = new JLabel("Please enter the info for the new film");
-		JButton btn_mAdd = new JButton("Add");
-		
 		frameFilm.add(filmPanelTop);
 		frameFilm.add(filmPanelContent);
 		frameFilm.add(filmPanelBot);
+		
+		//Create the GUI elements
+		JLabel lbl_mTitle = new JLabel("Please enter the info for the new film");
+		JButton btn_mAdd = new JButton("Add");
+		
+		//adds the elements to the panels
 		filmPanelTop.add(lbl_mTitle);
 		filmPanelBot.add(btn_mAdd);
 		filmPanelBot.add(btnBackMain);
 		
+		//------------------------------------
+	    //-----------Rental Frame-------------
+	    //------------------------------------
+		
+		//boiler plate code
 		JFrame frameRental = new JFrame("Movie Rentals");
-		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
 		frameRental.setSize(800,500);
 		frameRental.setLayout(new GridLayout(1,1,10,10));
 		frameRental.setLocationRelativeTo(null);
@@ -136,17 +153,25 @@ public class Main extends JFrame {
 		frameRental.add(rentalPanel);
 		//rentalPanel.add(test);
 		
+		//------------------------------------
+	    //-----------Report Frame-------------
+	    //------------------------------------
+		
+		//boiler plate code
 		JFrame frameReport = new JFrame("Rental Income");
-		//frameMain.setDefaultCloseOperation(frameMain.setVisible(true));
 		frameReport.setSize(800,500);
 		frameReport.setLayout(new GridLayout(1,1,10,10));
 		frameReport.setLocationRelativeTo(null);
 		JPanel reportPanel = new JPanel(new GridLayout(1,1));
 		frameReport.add(reportPanel);
 		//reportPanel.add(test);
-	   
 		frameMain.setVisible(true);
 	    
+		
+	    //------------------------------------
+		//Customer Button
+		//Opens the Customer Frame
+	    //------------------------------------
 	    btnCustomer.addActionListener(new ActionListener()
 	    { 
 	    	public void actionPerformed(ActionEvent ev)
@@ -156,6 +181,10 @@ public class Main extends JFrame {
 	        }
 	    });
 	    
+	    //------------------------------------
+	    //Actor Button
+	  	//Opens the Actor Frame
+	  	//------------------------------------
 	    btnActor.addActionListener(new ActionListener()
 	    { 
 	    	public void actionPerformed(ActionEvent ev)
@@ -165,6 +194,10 @@ public class Main extends JFrame {
 	        }
 	    });
 	    
+	    //------------------------------------
+	    //Film Button
+	  	//Opens the Film Frame
+	  	//------------------------------------
 	    btnFilm.addActionListener(new ActionListener()
 	    { 
 	    	public void actionPerformed(ActionEvent ev)
@@ -174,6 +207,10 @@ public class Main extends JFrame {
 	        }
 	    });
 	    
+	    //------------------------------------
+	    //Rental Button
+	  	//Opens the Rental Frame
+	  	//------------------------------------
 	    btnRental.addActionListener(new ActionListener()
 	    { 
 	    	public void actionPerformed(ActionEvent ev)
@@ -183,6 +220,10 @@ public class Main extends JFrame {
 	        }
 	    });
 	    
+	    //------------------------------------
+	    //Report Button
+	  	//Opens the Report Frame
+	  	//------------------------------------
 	    btnReport.addActionListener(new ActionListener()
 	    { 
 	    	public void actionPerformed(ActionEvent ev)
@@ -191,13 +232,16 @@ public class Main extends JFrame {
 	    		frameReport.setVisible(true);
 	        }
 	    });
-	    
+	    //------------------------------------
+	    //Back to main Button
+	  	//Hides all frames and opens the main Frame
+	  	//------------------------------------
 	    btnBackMain.addActionListener(new ActionListener()
 	    { 
 	    	public void actionPerformed(ActionEvent ev)
 	        {
+	    		
 	         frameMain.setVisible(true);
-	         
 	         frameCust.setVisible(false);
 	         frameActor.setVisible(false);
 	         frameFilm.setVisible(false);
@@ -207,6 +251,10 @@ public class Main extends JFrame {
 	        }
 	    });
 	   
+	    //------------------------------------
+	    //Actor Button
+	  	//Opens the Actor Frame
+	  	//------------------------------------
 	    btn_aAdd.addActionListener(new ActionListener()
 	    { 
 	    	public void actionPerformed(ActionEvent ev)
@@ -218,7 +266,7 @@ public class Main extends JFrame {
 	    
 	    
 	        
-	}
+	}//end of Main
 
-}
+}//end of main class
 
