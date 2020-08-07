@@ -23,7 +23,7 @@ public class Main extends JFrame
 		//variable 
 		String actorFirstName = "";
 		String actorLastName = "";
-		JButton btnBackMain = new JButton("Main Menu");
+		//JButton btnBackMain = new JButton("Main Menu");
 		
 		
 		//------------------------------------
@@ -105,6 +105,7 @@ public class Main extends JFrame
 		JComboBox<?> cb_cProvince = new JComboBox<Object>(provinceList);
 		JComboBox<?> cb_cCountry = new JComboBox<Object>(countryList);
 		JButton btn_cAdd = new JButton("Add Cusotmer");
+		JButton btn_cToMain = new JButton("Back to Main");
 		
 		//adds the elements to the panels
 		custPanelTop.add(lbl_cTitle);
@@ -123,7 +124,7 @@ public class Main extends JFrame
 		custPanelContent.add(lbl_cCountry);
 		custPanelContent.add(cb_cCountry);
 		custPanelBot.add(btn_cAdd);
-		custPanelBot.add(btnBackMain);
+		custPanelBot.add(btn_cToMain);
 		
 	
 
@@ -173,6 +174,7 @@ public class Main extends JFrame
 		JButton btn_aAdd = new JButton("Add");
 		JTextField tf_aFirst = new JTextField();
 		JTextField tf_aLast = new JTextField();
+		JButton btn_aToMain = new JButton("Back to Main");
 		
 		//adds elements for the panel
 		actorPanelTop.add(lbl_aTitle);
@@ -181,7 +183,7 @@ public class Main extends JFrame
 		actorPanelContent.add(lbl_aLast);
 		actorPanelContent.add(tf_aLast);
 		actorPanelBot.add(btn_aAdd);
-		actorPanelBot.add(btnBackMain);
+		actorPanelBot.add(btn_aToMain);
 		
 		//------------------------------------
 	    //------------Actor Popup-------------
@@ -270,6 +272,7 @@ public class Main extends JFrame
 		
 		JButton btn_fAddA = new JButton("Add Actor");
 		JButton btn_fAddF = new JButton("Add Film");
+		JButton btn_fToMain = new JButton("Back to Main");
 		
 		
 		//adds the elements to the panels
@@ -292,9 +295,10 @@ public class Main extends JFrame
 		filmPanelContent.add(cb_RatingList);
 		filmPanelContent.add(lbl_fSpecialFeatures);
 		
+		
 		filmPanelBot.add(btn_fAddA);
 		filmPanelBot.add(btn_fAddF);
-		filmPanelBot.add(btnBackMain);
+		filmPanelBot.add(btn_fToMain);
 		
 		//disableing buttons
 		btn_fAddA.setEnabled(false);
@@ -337,6 +341,7 @@ public class Main extends JFrame
 		JComboBox<?> cb_customerList = new JComboBox<Object>(customerList);
 		JComboBox<?> cb_staffList = new JComboBox<Object>(staffList);
 		JButton btn_rentAddRental = new JButton("Add Rental");
+		JButton btn_rentToMain = new JButton("Back to Main");
 		
 		//adds elements From Frames
 		rentalPanelTop.add(lbl_rentTitle);
@@ -347,7 +352,7 @@ public class Main extends JFrame
 		rentalPanelContent.add(lbl_rentStaffId);
 		rentalPanelContent.add(cb_staffList);
 		rentalPanelBot.add(btn_rentAddRental);
-		rentalPanelBot.add(btnBackMain);
+		rentalPanelBot.add(btn_rentToMain);
 		
 		
 		
@@ -381,6 +386,7 @@ public class Main extends JFrame
 		JButton btn_rAllIncome = new JButton("Income For All rentals");
 		JButton btn_rCatIncome = new JButton("All Rentals Dy Category");
 		JButton btn_rDateIncome = new JButton("All Rentals by Date");
+		JButton btn_rToMain = new JButton("Back to Main");
 			
 		//adds the elements to the panels
 		reportPanelTop.add(lbl_rTitle);
@@ -389,7 +395,7 @@ public class Main extends JFrame
 		reportPanelBot.add(btn_rAllIncome);
 		reportPanelBot.add(btn_rCatIncome);
 		reportPanelBot.add(btn_rDateIncome);
-		reportPanelBot.add(btnBackMain);
+		reportPanelBot.add(btn_rToMain);
 		
 		//END of frame Declaration
 		//------------------------
@@ -462,24 +468,83 @@ public class Main extends JFrame
 	    		frameReport.setVisible(true);
 	        }
 	    });
+	    
+	    
+	    //-----------------------------------
+	    //END OF MAIN BUTTONS 
+	    //-----------------------------------
+	    
+	    
 	    //------------------------------------
-	    //Back to main Button
+	    // Customer Back to main Button
 	  	//Hides all frames and opens the main Frame
 	  	//------------------------------------
-	    btnBackMain.addActionListener(new ActionListener()
+	    btn_cToMain.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	         frameMain.setVisible(true);
+	         frameCust.setVisible(false);
+	        }
+	    });
+	    
+	    //------------------------------------
+	    //Actor Back to main Button
+	  	//Hides all frames and opens the main Frame
+	  	//------------------------------------
+	    btn_aToMain.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	         frameMain.setVisible(true);
+	         frameActor.setVisible(false);
+	        }
+	    });
+	   
+	    //------------------------------------
+	    //Film Back to main Button
+	  	//Hides all frames and opens the main Frame
+	  	//------------------------------------
+	    btn_fToMain.addActionListener(new ActionListener()
 	    { 
 	    	public void actionPerformed(ActionEvent ev)
 	        {
 	    		
 	         frameMain.setVisible(true);
-	         frameCust.setVisible(false);
-	         frameActor.setVisible(false);
 	         frameFilm.setVisible(false);
+	        }
+	    });
+	    
+	    //------------------------------------
+	    //Rentals Back to main Button
+	  	//Hides all frames and opens the main Frame
+	  	//------------------------------------
+	    btn_rentToMain.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    		
+	         frameMain.setVisible(true);
 	         frameRental.setVisible(false);
+	        }
+	    });
+	    
+	    //------------------------------------
+	    //Report Back to main Button
+	  	//Hides all frames and opens the main Frame
+	  	//------------------------------------
+	    btn_rToMain.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    		
+	         frameMain.setVisible(true);
 	         frameReport.setVisible(false);
 	         
 	        }
 	    });
+	   
+	    
 	   
 	    
 	    //------------------------------------
@@ -542,6 +607,15 @@ public class Main extends JFrame
 	    	
 	        }
 	    });
+	    
+	    btn_rentAddRental.addActionListener(new ActionListener()
+	    { 
+	    	public void actionPerformed(ActionEvent ev)
+	        {
+	    	
+	        }
+	    });
+	    
 	    
 	    
 	        
