@@ -132,10 +132,10 @@ public class Main extends JFrame
 		//------------------------------------
 		//Boiler plate
 		JFrame CustPopUp = new JFrame("Customer Adding Status");
-		frameMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frameMain.setSize(200,100);
-		frameMain.setLayout(new GridLayout(1,1,10,10));
-		frameMain.setLocationRelativeTo(null);
+		CustPopUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		CustPopUp.setSize(200,100);
+		CustPopUp.setLayout(new GridLayout(1,1,10,10));
+		CustPopUp.setLocationRelativeTo(null);
 		
 		//creates and adds panel to frame
 		JPanel CpPopup = new JPanel(new GridLayout(1,1));
